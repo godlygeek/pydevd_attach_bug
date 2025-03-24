@@ -1,0 +1,19 @@
+[build-system]
+requires = [
+    "setuptools>=70",
+    "wheel",
+    "Cython>=3"
+]
+
+build-backend = 'setuptools.build_meta'
+
+[project]
+name = "pydevd_attach_bug"
+version = "0.0.1"
+description = "A reproducer for https://github.com/fabioz/PyDev.Debugger/issues/302"
+requires-python = ">=3.8.0"
+
+[tool.setuptools]
+ext-modules = [
+  {name = "demo._demo", sources = ["src/demo/_demo.pyx"], extra-compile-args = ["-std=c11"]}
+]
